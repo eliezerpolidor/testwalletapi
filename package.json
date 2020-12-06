@@ -1,0 +1,33 @@
+{
+  "name": "testwallet",
+  "author": "Misael Polidor",
+  "version": "1.0.0",
+  "description": "base api in express js",
+  "main": "server.js",
+  "script": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.18.3",
+    "debug": "^4.1.1",
+    "dropbox": "^2.5.13",
+    "excel4node": "^1.7.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^7.4.3",
+    "mongoose": "^4.13.18",
+    "multer": "^1.4.1",
+    "nodemailer": "^4.7.0",
+    "sharp": "^0.20.8",
+    "swagger-tools": "^0.10.4",
+    "swagger-ui-express": "^4.0.2",
+    "translate-json-object": "^2.3.2",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

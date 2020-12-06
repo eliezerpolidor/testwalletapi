@@ -1,0 +1,13 @@
+logs
+*.log
+npm-debug.log*
+.grunt
+.lock-wscript
+node_modules
+jspm_packages
+.npm
+.node_repl_history
+.DS_Store
+bson
+snippets.js
+package-lock.json

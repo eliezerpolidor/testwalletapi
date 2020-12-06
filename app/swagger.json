@@ -1,0 +1,63 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Web API Documentation",
+    "version": "1.0.0",
+    "title": "Test wallet",
+    "termsOfService": "",
+    "contact": {
+      "email": ""
+    },
+    "license": {
+      "name": "EULA",
+      "url": ""
+    }
+  },
+  "host": "localhost:3001",
+  "basePath": "/api/v1",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "paths": { },
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "name": "x-access-token",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "document": {
+          "type": "string"
+        },
+        "names": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "cellphone": {
+          "type": "string"
+        }
+      }
+    },
+    "Credentials": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
