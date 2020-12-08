@@ -1,6 +1,11 @@
 var express = require('express');
 var swaggerUi = require('swagger-ui-express');
+var authMidleware = require('./midlewares/auth');
 var swaggerDocument = require('./swagger.json');
+var userController = require('./controllers/user');
+var walletController = require('./controllers/wallet');
+var paymentController = require('./controllers/payment');
+
 module.exports = function(app) {
 
     var apiRoutes = express.Router();
@@ -11,12 +16,13 @@ module.exports = function(app) {
         });
     });
 
-
-    apiRoutes.get('/hola/como', function(req, res) {
-      res.json({
-          response: 'todo bien y tu'
-      });
-    });
+    //rest services
+    apiRoutes.post('/user', userController.createUser);
+    apiRoutes.post('/signin', userController.signin);
+    apiRoutes.get('/wallet', authMidleware.authenticate, walletController.getWallet);
+    apiRoutes.put('/wallet', authMidleware.authenticate, walletController.putWallet);
+    apiRoutes.post('/payment', authMidleware.authenticate, paymentController.createPayment);
+    apiRoutes.put('/payment/confirm', authMidleware.authenticate, paymentController.confirmPayment);
 
     var options = {
       swaggerOptions: {
@@ -25,6 +31,6 @@ module.exports = function(app) {
     };
 
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
-    app.use('/api/v1', apiRoutes);
+    app.use('/walletapi', apiRoutes);
 
 }
